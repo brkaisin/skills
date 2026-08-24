@@ -72,10 +72,14 @@ pick_interactive() {
     printf '\r\033[2K  \033[2m↑/↓ move · space toggle · a all/none · enter install · q quit\033[0m\n'
     IFS= read -rsn1 key </dev/tty
     if [ "$key" = $'\x1b' ]; then
-      IFS= read -rsn2 -t 0.05 rest </dev/tty || rest=""
-      case "$rest" in
-        '[A') cursor=$(( (cursor + n - 1) % n )) ;;      # up
-        '[B') cursor=$(( (cursor + 1) % n )) ;;          # down
+      # arrow keys arrive as ESC [ A/B; read the tail byte-by-byte with an
+      # integer timeout (bash 3.2, macOS default, rejects fractional -t)
+      rest="" rest2=""
+      IFS= read -rsn1 -t 1 rest </dev/tty || rest=""
+      [ "$rest" = "[" ] && { IFS= read -rsn1 -t 1 rest2 </dev/tty || rest2=""; }
+      case "$rest2" in
+        A) cursor=$(( (cursor + n - 1) % n )) ;;         # up
+        B) cursor=$(( (cursor + 1) % n )) ;;             # down
       esac
     else
       case "$key" in

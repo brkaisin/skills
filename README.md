@@ -23,7 +23,7 @@ Categories are for humans browsing the repo; harnesses usually see a flat list, 
 ./install.sh                     # interactive picker: ↑/↓ move, space toggle, a all/none,
                                  #                     enter install, q quit
 ./install.sh disk                # a whole category
-./install.sh disk-audit          # specific skills (mix with categories freely)
+./install.sh disk-doctor         # specific skills (mix with categories freely)
 ./install.sh --all               # everything, no questions (scripts/CI)
 ./install.sh --dir <path> ...    # any target directory (default: ~/.claude/skills, Claude Code)
 ./install.sh --copy ...          # copy instead of symlink (for machines where this repo won't stay)
@@ -48,10 +48,11 @@ Skills reference each other by name ("invoke the disk-audit skill"): in harnesse
 2. `cp -R _template <category>/<skill-name>` and edit `SKILL.md`.
 3. Frontmatter rules: `name` = folder name, lowercase-kebab, unique; `description` says **what it does and when to use it** — that's what triggers it, so include the phrases a user would actually say.
 4. Keep `SKILL.md` under ~150 lines; push details into `references/` (loaded only when needed) and repeatable shell work into `scripts/`. Keep instructions harness-neutral: name capabilities ("a structured question tool, if available"), not specific tool brands.
+   For a multi-step workflow that must stay atomic (one entry point, parts never installed or invoked separately), make it ONE skill with phase documents inside — see `disk/disk-doctor` (`SKILL.md` + `AUDIT.md` + `CLEAN.md`) — rather than several skills.
 5. Re-run `./install.sh`.
 
 ## Categories
 
 | Category | Skills | Purpose |
 |---|---|---|
-| [disk](disk/) | `disk-doctor`, `disk-audit`, `disk-clean` | Disk-space analysis and safe cleanup (macOS + Linux) |
+| [disk](disk/) | `disk-doctor` | Disk-space analysis and safe cleanup (macOS + Linux) |

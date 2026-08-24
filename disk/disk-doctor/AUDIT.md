@@ -1,11 +1,6 @@
----
-name: disk-audit
-description: Read-only disk space audit. Scans caches, application data, logs and developer-tool folders, detects leftovers from uninstalled apps, classifies everything into risk tiers, and presents a visual report so the user can choose what to clean. Use when the user asks what is taking disk space, what can be cleaned, why the disk is full, or before any cleanup. This skill never deletes anything — deletion is handled by the disk-clean skill.
----
+# Audit phase (disk-doctor step 2)
 
-# Disk audit
-
-Analyze where disk space is going and what could safely be reclaimed. **This skill is strictly read-only.** Do not delete, move, or modify anything, even if the user says "just clean it" — finish the audit and the report first, then hand off to the `disk-clean` skill with the user's confirmed selection.
+Analyze where disk space is going and what could safely be reclaimed. **This phase is strictly read-only.** Do not delete, move, or modify anything, even if the user says "just clean it" — finish the audit and the report first; deletion happens in `CLEAN.md` after the user has chosen.
 
 ## Workflow
 
@@ -62,7 +57,7 @@ The user decides from this report, so make it genuinely readable:
 
 ### 7. Let the user choose
 
-Ask which tiers (or individual items) to clean — use a structured question tool (e.g. AskUserQuestion) if available, with your recommendation first: Tiers 1+2 are the no-brainer default; Tier 3 for maximum reclaim. Then invoke the `disk-clean` skill with the confirmed selection. Never start deleting inside this skill.
+Ask which tiers (or individual items) to clean — use a structured question tool (e.g. AskUserQuestion) if available, with your recommendation first: Tiers 1+2 are the no-brainer default; Tier 3 for maximum reclaim. Then proceed to `CLEAN.md` with the confirmed selection. Never start deleting inside this phase.
 
 ## Notes
 

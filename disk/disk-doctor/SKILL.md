@@ -1,27 +1,30 @@
 ---
 name: disk-doctor
-description: Entry point for disk-space problems on macOS and Linux. Detects the OS and disk pressure, then guides the user through the full pipeline automatically - audit (disk-audit skill), interactive choice of what to delete, safe cleanup (disk-clean skill), and a final report - with optional recurring re-audits. Use when the user says the disk is full, asks to free up or clean disk space, or wants a disk checkup, without them needing to know the underlying skills.
+description: Disk-space checkup and safe cleanup for macOS and Linux. Detects the OS and disk pressure, analyzes what is taking space (caches, app data, logs, leftovers of uninstalled apps), presents a tiered report, lets the user choose what to delete, then cleans safely and reports the space reclaimed. Use when the user says the disk is full, asks what is taking or eating disk space, what can be cleaned or deleted, or wants to free up space or get a disk audit or checkup. Analysis is read-only; nothing is deleted without the user's explicit selection.
 ---
 
 # Disk doctor
 
-One command from "my disk is full" to "here's what I reclaimed". This skill orchestrates; the real work is defined in the companion skills **disk-audit** (analysis, read-only) and **disk-clean** (deletion, gated). If either companion is missing, say so and follow its principles manually rather than improvising a different process.
+One flow from "my disk is full" to "here's what I reclaimed". The two working phases live in this folder and are loaded when their step starts:
+
+- **`AUDIT.md`** — the analysis phase: scanning, leftover detection, tier classification, visual report. Strictly read-only.
+- **`CLEAN.md`** — the deletion phase: safety protocol, native cleaners, hard limits, verification.
+
+Follow the pipeline below; the **only mandatory stop is step 3**, where the user chooses what to delete. Don't ask permission to analyze; never delete before the user has chosen.
 
 ## Pipeline
-
-Run the whole pipeline in one flow — the **only mandatory stop is step 3**, where the user chooses what to delete. Don't ask permission to analyze; do ask before deleting.
 
 ### 1. Diagnose (30 seconds)
 
 - OS: `uname` → determines catalogs and cleaners used downstream.
 - Pressure: `df -h /` → "You have X free of Y (Z%)."
-- Quick triage with the audit's scanner to size the opportunity: `disk-audit/scripts/scan.sh hotspots | head -15`.
+- Quick triage to size the opportunity: `scripts/scan.sh hotspots | head -15`.
 
 Open with one honest sentence: how bad it is, and roughly how much looks reclaimable. If the disk is nearly full (<5 GB free), warn that the machine may misbehave and prioritize the fastest wins first.
 
 ### 2. Audit
 
-Invoke the **disk-audit** skill and follow it fully: deep scans, orphan and version-stack detection, recency checks, tier classification, and the visual report. Don't shortcut it — the report is what makes step 3 an informed choice.
+Read `AUDIT.md` and follow it fully: deep scans, orphan and version-stack detection, recency checks, tier classification, and the visual report. Don't shortcut it — the report is what makes step 3 an informed choice. This phase never deletes anything.
 
 ### 3. Choose — the gate
 
@@ -29,7 +32,7 @@ Present the tiers with a recommendation (Tiers 1+2 are the zero-risk default; Ti
 
 ### 4. Clean
 
-Invoke the **disk-clean** skill with the confirmed selection. It handles app-running checks, native cleaners, safe `rm` batches, and retries.
+Read `CLEAN.md` and execute the confirmed selection under its rules: app-running checks, native cleaners, safe `rm` batches, retries, hard no-touch limits.
 
 ### 5. Report and prevent
 
@@ -39,12 +42,7 @@ Invoke the **disk-clean** skill with the confirmed selection. It handles app-run
 
 ### 6. Offer automation (optional, ask — never set up silently)
 
-If the environment supports scheduled/recurring tasks (cron-style scheduling, scheduled agents, or a recurring-prompt feature), offer **one** of:
-
-- a monthly *read-only* re-audit that reports findings without deleting, or
-- a reminder to run this skill again.
-
-Automated runs must never delete anything — an unattended run stops after step 2 and leaves the report for the user. If no scheduling mechanism exists, suggest the user simply re-run this skill periodically.
+If the environment supports scheduled/recurring tasks, offer **one** of: a monthly *read-only* re-audit that reports findings without deleting, or a reminder to run this skill again. Automated runs must never delete anything — an unattended run stops after step 2 and leaves the report for the user. If no scheduling mechanism exists, suggest the user simply re-run this skill periodically.
 
 ## Tone
 

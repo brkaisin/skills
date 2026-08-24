@@ -126,6 +126,16 @@ done
 
 # ---------- install ----------
 mkdir -p "$DEST"
+
+# Prune dangling symlinks pointing into this repo (skills renamed or removed).
+for existing in "$DEST"/*; do
+  [ -L "$existing" ] || continue
+  tgt="$(readlink "$existing")"
+  case "$tgt" in
+    "$REPO"/*) [ -e "$existing" ] || { rm -f "$existing"; echo "  prune    $(basename "$existing") (stale link to removed skill)"; } ;;
+  esac
+done
+
 installed=0 skipped=0
 for i in "${!NAMES[@]}"; do
   name="${NAMES[$i]}"

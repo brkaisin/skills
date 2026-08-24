@@ -1,15 +1,10 @@
----
-name: disk-clean
-description: Safely delete disk-space leftovers that the user selected from a disk-audit report — orphaned app data, stale archives, rebuildable caches. Use only after a disk-audit has run and the user confirmed what to delete; if there is no confirmed selection yet, run the disk-audit skill first. Never deletes user data.
----
+# Clean phase (disk-doctor step 4)
 
-# Disk clean
-
-Execute a cleanup the user already chose from a `disk-audit` report.
+Execute a cleanup the user already chose from the audit report.
 
 ## Preconditions — do not skip
 
-1. **A confirmed selection exists.** You must know exactly which items/tiers the user approved. If not, stop and run the `disk-audit` skill first — never "clean up the disk" from scratch inside this skill.
+1. **A confirmed selection exists.** You must know exactly which items/tiers the user approved. If not, stop and go back to `AUDIT.md` — never "clean up the disk" from scratch inside this phase.
 2. **Baseline recorded**: `df -h /` before the first deletion.
 3. **Owning apps are closed.** Before touching any app's data, `pgrep` for it. If it's running (browsers especially), skip its items, tell the user why, and offer to do them once the app is quit — don't wait silently and don't delete anyway.
 

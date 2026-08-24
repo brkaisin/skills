@@ -1,18 +1,25 @@
 #!/usr/bin/env bash
-# Install every skill in this repo into the Claude Code skills directory.
+# Install every skill in this repo into a skills directory.
 #
-#   ./install.sh          symlink skills (default — repo edits apply immediately)
-#   ./install.sh --copy   copy instead of symlink
+#   ./install.sh                 symlink skills (default — repo edits apply immediately)
+#   ./install.sh --copy          copy instead of symlink
+#   ./install.sh --dir <path>    target directory (default: $SKILLS_DIR or
+#                                $CLAUDE_SKILLS_DIR or ~/.claude/skills)
 #
-# Target: $CLAUDE_SKILLS_DIR if set, else ~/.claude/skills
 # Skills are the folders containing a SKILL.md (repo layout: <category>/<skill>/SKILL.md).
 # Existing non-symlink folders in the target are never overwritten.
 set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")" && pwd)"
-DEST="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}"
+DEST="${SKILLS_DIR:-${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}}"
 MODE="link"
-[ "${1:-}" = "--copy" ] && MODE="copy"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --copy) MODE="copy"; shift ;;
+    --dir)  DEST="${2:?--dir needs a path}"; shift 2 ;;
+    *) echo "usage: $0 [--copy] [--dir <path>]" >&2; exit 1 ;;
+  esac
+done
 mkdir -p "$DEST"
 
 installed=0 skipped=0

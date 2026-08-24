@@ -10,15 +10,14 @@ Three agent skills for **macOS and Linux** that work together:
 
 The separation is the safety model: analysis is always free to run; deletion requires an audit plus your explicit choice. Automated/scheduled runs never delete.
 
-## Install (Claude Code)
+## Install
 
-Use the repo installer (installs all categories): `../install.sh` — or copy just these three folders into `~/.claude/skills/`. Then in any session:
+Use the repo installer (installs all categories): `../install.sh`, with `--dir <path>` for harnesses other than Claude Code — see the repo README for per-harness notes. Then ask your agent:
 
-```
-/disk-doctor         # the one command: diagnose → audit → choose → clean → report
-```
+> "my disk is full" / "what can I clean?" → **disk-doctor** runs the whole pipeline:
+> diagnose → audit → choose → clean → report
 
-`/disk-audit` (analysis only) and `/disk-clean` (after an audit) also work standalone. Natural language works too: "my disk is full" triggers disk-doctor.
+**disk-audit** (analysis only) and **disk-clean** (after an audit) also work standalone. In Claude Code they're additionally available as `/disk-doctor`, `/disk-audit`, `/disk-clean`.
 
 ## Layout
 

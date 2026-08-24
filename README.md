@@ -20,12 +20,15 @@ Categories are for humans browsing the repo; harnesses usually see a flat list, 
 ## Install
 
 ```bash
-./install.sh                     # symlink into ~/.claude/skills (Claude Code default)
-./install.sh --dir <path>        # any other target directory
-./install.sh --copy              # copy instead of symlink (for machines where this repo won't stay)
+./install.sh                     # interactive: lists skills, asks which to install
+./install.sh disk                # a whole category
+./install.sh disk-audit          # specific skills (mix with categories freely)
+./install.sh --all               # everything, no questions (scripts/CI)
+./install.sh --dir <path> ...    # any target directory (default: ~/.claude/skills, Claude Code)
+./install.sh --copy ...          # copy instead of symlink (for machines where this repo won't stay)
 ```
 
-Symlinks mean edits in the repo apply immediately. Existing non-symlink folders in the target are never overwritten.
+Symlinks mean edits in the repo apply immediately. Existing non-symlink folders in the target are never overwritten. Non-interactive runs with no selection install everything.
 
 ## Using with different harnesses
 

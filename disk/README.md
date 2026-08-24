@@ -12,7 +12,7 @@ The separation is the safety model: analysis is always free to run; deletion req
 
 ## Install
 
-Use the repo installer (installs all categories): `../install.sh`, with `--dir <path>` for harnesses other than Claude Code — see the repo README for per-harness notes. Then ask your agent:
+Use the repo installer: `../install.sh disk` (this category only) or bare `../install.sh` to choose interactively; add `--dir <path>` for harnesses other than Claude Code — see the repo README for per-harness notes. Then ask your agent:
 
 > "my disk is full" / "what can I clean?" → **disk-doctor** runs the whole pipeline:
 > diagnose → audit → choose → clean → report

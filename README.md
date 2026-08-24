@@ -20,7 +20,8 @@ Categories are for humans browsing the repo; harnesses usually see a flat list, 
 ## Install
 
 ```bash
-./install.sh                     # interactive: lists skills, asks which to install
+./install.sh                     # interactive picker: ↑/↓ move, space toggle, a all/none,
+                                 #                     enter install, q quit
 ./install.sh disk                # a whole category
 ./install.sh disk-audit          # specific skills (mix with categories freely)
 ./install.sh --all               # everything, no questions (scripts/CI)
@@ -29,6 +30,8 @@ Categories are for humans browsing the repo; harnesses usually see a flat list, 
 ```
 
 Symlinks mean edits in the repo apply immediately. Existing non-symlink folders in the target are never overwritten. Non-interactive runs with no selection install everything.
+
+**Where to install:** Claude Code only discovers skills in `~/.claude/skills` (personal, the default) or `<project>/.claude/skills` (project) — the installer warns if the target is neither. New skills are picked up at session start, so restart a running session after installing.
 
 ## Using with different harnesses
 

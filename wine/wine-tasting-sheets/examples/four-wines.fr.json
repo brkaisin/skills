@@ -1,0 +1,491 @@
+{
+  "lang": "fr",
+  "theme": "color",
+  "title": "Dégustation – 4 vins",
+  "wines": [
+    {
+      "color": "white",
+      "type_label": "Blanc sec",
+      "name": "Morillon",
+      "producer": "Jeff Carrel",
+      "appellation": "Vin de France · Languedoc · 2025",
+      "hook": "Le vieux nom bourguignon du chardonnay, pour un blanc du Languedoc fait de raisins en partie touchés par la pourriture noble, comme pour un sauternes, mais vinifié en sec.",
+      "story": [
+        "« Morillon » est le nom que l’on donnait au chardonnay en Bourgogne au Moyen Âge ; il s’emploie encore en Styrie, en Autriche. Le chardonnay est né d’un croisement entre pinot noir et gouais blanc, probablement près du village de Chardonnay, dans le Mâconnais.",
+        "Jeff Carrel, Parisien de la Goutte d’Or, change de vie en 1991 et devient œnologue. Installé dans les Corbières, dans un chai de 1857, il travaille en « négociant-vinificateur » : pas de vignes à lui, mais des cuvées composées avec des vignerons partenaires. Sa devise : « Durum patientia frango », avec patience je fends la pierre."
+      ],
+      "technique": [
+        {
+          "label": "Terroir",
+          "text": "Galets de quartz, quartzites, granulites, calcaire et limons anciens, selon les parcelles."
+        },
+        {
+          "label": "Vigne",
+          "text": "Taille Guyot, convertie peu à peu en cordon de Royat. Labour l’hiver, effeuillage l’été."
+        },
+        {
+          "label": "Vendange",
+          "text": "Mécanique et de nuit, pour la fraîcheur. Raisins en partie botrytisés."
+        },
+        {
+          "label": "Vinification",
+          "text": "Pressurage direct, débourbage à froid par flottation, fermentation en sec."
+        },
+        {
+          "label": "Élevage",
+          "text": "9 mois en cuve béton avec des douelles de chêne. Mise en bouteille quand Jeff trouve « le goût Morillon »."
+        }
+      ],
+      "tasting": {
+        "eye": "Jaune paille, un peu moins doré que la plupart des millésimes.",
+        "nose": "Mûr et expressif : poire, pêche, ananas, puis notes beurrées et grillées.",
+        "palate": "Ronde, ample, dense, presque grasse. L’acidité équilibre et rafraîchit.",
+        "finish": "Nette, finement astringente : pain grillé, touche de beurre, pointe de vanille."
+      },
+      "profile": [
+        {
+          "label": "Acidité",
+          "value": 3
+        },
+        {
+          "label": "Corps",
+          "value": 4
+        },
+        {
+          "label": "Boisé",
+          "value": 3
+        },
+        {
+          "label": "Sucre",
+          "value": 1
+        },
+        {
+          "label": "Intensité",
+          "value": 4
+        }
+      ],
+      "pairings": [
+        {
+          "kind": "Entrée",
+          "dish": "Foie gras mi-cuit",
+          "note": "ou jambon cru et billes de melon"
+        },
+        {
+          "kind": "Plat",
+          "dish": "Pintade aux champignons",
+          "note": "ou, version belge, un vol-au-vent"
+        },
+        {
+          "kind": "Fromage et dessert",
+          "dish": "Comté affiné",
+          "note": "puis une tarte aux pommes"
+        }
+      ],
+      "avoid": "les huîtres et les plats vinaigrés, écrasés par le boisé.",
+      "did_you_know": "Avec l’âge, les notes de raisins rôtis par le botrytis ressortent et la couleur devient plus éclatante : le producteur lui donne au moins 10 ans de garde.",
+      "facts": [
+        {
+          "label": "Cépage",
+          "value": "100 % chardonnay"
+        },
+        {
+          "label": "Alcool",
+          "value": "14 %"
+        },
+        {
+          "label": "Élevage",
+          "value": "9 mois, béton et douelles"
+        },
+        {
+          "label": "Service",
+          "value": "10–12 °C"
+        },
+        {
+          "label": "Garde",
+          "value": "10 ans et plus"
+        },
+        {
+          "label": "Distinctions",
+          "value": "Or IWSA 2026 · Vivino 4,1/5"
+        }
+      ],
+      "map": {
+        "country_iso3": "FRA",
+        "country_label": "France",
+        "place": "Corbières, Aude",
+        "lat": 43.087,
+        "lon": 2.7,
+        "caption": "Le chai de Jeff Carrel, à Saint-Laurent-de-la-Cabrerisse. Raisins de parcelles du Languedoc.",
+        "ref": {
+          "name": "Paris",
+          "lat": 48.857,
+          "lon": 2.352
+        }
+      },
+      "sources": "Fiche technique Jeff Carrel 2025 · Vivino · Wikipédia (chardonnay)"
+    },
+    {
+      "color": "white",
+      "type_label": "Blanc sec",
+      "name": "Go de Godello",
+      "producer": "Soto del Vicario",
+      "appellation": "DO Bierzo · Espagne · 2025",
+      "hook": "Un cépage tombé à 0,5 % du vignoble de Valdeorras dans les années 1970, sauvé par une poignée de vignerons et devenu l’un des grands blancs d’Espagne.",
+      "story": [
+        "Après le phylloxéra, arrivé en 1882, la Galice replante surtout du palomino, plus productif. Le godello disparaît presque. Au milieu des années 1970, le projet REVIVAL, mené par Horacio Fernández Presa, part à la recherche des derniers ceps. À Valdeorras, il couvrait 616 ha en 2022, deux fois plus qu’en 2012.",
+        "Soto del Vicario est la bodega du Bierzo de Pago del Vicario, à San Clemente, près de Cacabelos : 19 ha de vignes répartis en 190 parcelles, dont des mencías de plus de 100 ans. L’ingénieure agronome Sandra Luque y dirige la production depuis 2006."
+      ],
+      "technique": [
+        {
+          "label": "Région",
+          "text": "DO depuis 1989, du nom de Bergidum, cité pré-romaine. Vigne plantée par les Romains, étendue par les moines."
+        },
+        {
+          "label": "Climat",
+          "text": "Entre humidité galicienne et sécheresse castillane : 12 °C de moyenne, environ 700 mm de pluie et 2 200 h de soleil."
+        },
+        {
+          "label": "Sols",
+          "text": "Ardoise et quartzite sur les pentes, argiles rouges en plaine. Les meilleures vignes sont entre 450 et 1 000 m."
+        },
+        {
+          "label": "Élevage",
+          "text": "En barrique selon le producteur, sans durée précisée. Une fiche de concours le dit non boisé."
+        },
+        {
+          "label": "Cépage",
+          "text": "Aromatique sans exubérance, acidité fine, beaucoup de volume. Il supporte très bien le bois."
+        }
+      ],
+      "tasting": {
+        "eye": "Jaune paille brillant, reflets verts.",
+        "nose": "Fruit de la passion, pêche, mirabelle, fleurs blanches, notes balsamiques ; puis fumé, fruits secs grillés, brioche.",
+        "palate": "Crémeuse, fraîche et savoureuse. Corps moyen mais dense, légère amertume.",
+        "finish": "Longue et veloutée, sur les fruits secs grillés."
+      },
+      "profile": [
+        {
+          "label": "Acidité",
+          "value": 3
+        },
+        {
+          "label": "Corps",
+          "value": 3
+        },
+        {
+          "label": "Boisé",
+          "value": 2
+        },
+        {
+          "label": "Sucre",
+          "value": 1
+        },
+        {
+          "label": "Intensité",
+          "value": 4
+        }
+      ],
+      "pairings": [
+        {
+          "kind": "La mer",
+          "dish": "Saint-Jacques snackées",
+          "note": "ou un poulpe à la galicienne"
+        },
+        {
+          "kind": "Plat",
+          "dish": "Poulet rôti au citron",
+          "note": "ou un risotto aux champignons"
+        },
+        {
+          "kind": "Tapas",
+          "dish": "Pimientos de Padrón",
+          "note": "jambon serrano, manchego jeune"
+        }
+      ],
+      "avoid": "les plats très épicés, qui accentuent l’amertume.",
+      "did_you_know": "Dans le Bierzo, on vendange environ un mois avant le reste de la Castille : les vallées abritées par les montagnes y mûrissent plus vite.",
+      "facts": [
+        {
+          "label": "Cépage",
+          "value": "100 % godello"
+        },
+        {
+          "label": "Alcool",
+          "value": "environ 13 %"
+        },
+        {
+          "label": "Élevage",
+          "value": "Barrique, selon le producteur"
+        },
+        {
+          "label": "Service",
+          "value": "11–12 °C"
+        },
+        {
+          "label": "Garde",
+          "value": "2 à 3 ans (estimation)"
+        },
+        {
+          "label": "Distinctions",
+          "value": "Or Concours Mondial · Peñín 90"
+        }
+      ],
+      "map": {
+        "country_iso3": "ESP",
+        "country_label": "Espagne",
+        "place": "Cacabelos, Bierzo",
+        "lat": 42.6,
+        "lon": -6.727,
+        "caption": "La bodega Soto del Vicario, à San Clemente, près de Cacabelos (León).",
+        "ref": {
+          "name": "Madrid",
+          "lat": 40.417,
+          "lon": -3.704
+        }
+      },
+      "sources": "Pago del Vicario · Guía Peñín · Concours Mondial de Bruxelles · GuildSomm. Médaille : millésime 2023 ; Peñín : 2024."
+    },
+    {
+      "color": "red",
+      "type_label": "Rouge · Bio",
+      "name": "Le Temps des Épices",
+      "producer": "Jeff Carrel",
+      "appellation": "AOP Corbières · Languedoc · 2019",
+      "hook": "Vendangé en 2019, mis en bouteille en mai 2024 : 57 mois d’élevage sous bois, un luxe rare pour un Corbières.",
+      "story": [
+        "« Quand on sait prendre le temps, l’appellation Corbières n’a plus rien à envier aux grands vins du sud, Vega Sicilia, Pingus, Tignanello, Sassicaia… » C’est le pari de Jeff Carrel avec cette cuvée bio, élevée près de cinq ans sur lies fines.",
+        "Les Corbières, AOC depuis 1985, couvrent 87 communes balayées par la tramontane. La vigne y est cultivée depuis l’époque romaine. Le carignan, sans doute venu d’Aragon, en est le cépage emblématique ; en 1988, c’était le cépage le plus planté de France."
+      ],
+      "technique": [
+        {
+          "label": "Terroir",
+          "text": "Nord du massif des Corbières, sols argilo-calcaires."
+        },
+        {
+          "label": "Vigne",
+          "text": "Grenache et carignan taillés en gobelet, rendement faible de 35 hl/ha. Agriculture biologique, certifiée Ecocert."
+        },
+        {
+          "label": "Vinification",
+          "text": "65 % grenache, 20 % carignan, 15 % syrah : égrappés, puis assemblés avant fermentation."
+        },
+        {
+          "label": "Élevage",
+          "text": "57 mois sous bois sur lies fines, avec des bâtonnages réguliers. Mise en bouteille en mai 2024."
+        },
+        {
+          "label": "Garde",
+          "text": "« Au moins 5 ans » selon le producteur. À 7 ans, il est prêt à boire."
+        }
+      ],
+      "tasting": {
+        "eye": "Rubis translucide.",
+        "nose": "Fin et intense : épices douces enrobant des fruits rouges, puis prune et garrigue.",
+        "palate": "D’abord soyeuse, elle gagne en densité et en puissance : poivre blanc, muscade, tanins fins.",
+        "finish": "Encore de la fraîcheur et une belle longueur."
+      },
+      "profile": [
+        {
+          "label": "Acidité",
+          "value": 3
+        },
+        {
+          "label": "Corps",
+          "value": 4
+        },
+        {
+          "label": "Tanins",
+          "value": 3
+        },
+        {
+          "label": "Boisé",
+          "value": 3
+        },
+        {
+          "label": "Épices",
+          "value": 5
+        }
+      ],
+      "pairings": [
+        {
+          "kind": "L’accord du producteur",
+          "dish": "Gigot d’agneau rosé",
+          "note": "« plutôt rosé que confit »"
+        },
+        {
+          "kind": "Cuisine du sud",
+          "dish": "Cassoulet ou daube",
+          "note": "ou une ratatouille aux herbes"
+        },
+        {
+          "kind": "Fromage",
+          "dish": "Tomme de brebis",
+          "note": "ossau-iraty, manchego affiné"
+        }
+      ],
+      "avoid": "les plats sucrés-salés, qui durcissent les tanins.",
+      "did_you_know": "Andreas Larsson, élu meilleur sommelier du monde en 2007, lui donne 90/100 : « épices sèches, poivre, prune, petits fruits rouges et garrigue ».",
+      "facts": [
+        {
+          "label": "Cépages",
+          "value": "Grenache, carignan, syrah"
+        },
+        {
+          "label": "Alcool",
+          "value": "14 %"
+        },
+        {
+          "label": "Élevage",
+          "value": "57 mois sous bois"
+        },
+        {
+          "label": "Service",
+          "value": "15 °C, ouvrir 1 h avant"
+        },
+        {
+          "label": "Garde",
+          "value": "5 ans et plus"
+        },
+        {
+          "label": "Distinctions",
+          "value": "Larsson 90 · Maroni 96"
+        }
+      ],
+      "map": {
+        "country_iso3": "FRA",
+        "country_label": "France",
+        "place": "Nord des Corbières, Aude",
+        "lat": 43.136,
+        "lon": 2.698,
+        "caption": "Le Cuvier Carrel de Fabrezan, où la maison vinifie ses vins bio.",
+        "ref": {
+          "name": "Paris",
+          "lat": 48.857,
+          "lon": 2.352
+        }
+      },
+      "sources": "Fiche technique Jeff Carrel 2019 · andreas-larsson.com · Wikipédia (Corbières, carignan)"
+    },
+    {
+      "color": "red",
+      "type_label": "Rouge",
+      "name": "Takar Areni",
+      "producer": "Armenia Wine",
+      "appellation": "Vayots Dzor · Arménie · 2022",
+      "hook": "L’areni noir pousse près de la grotte d’Areni-1, où des archéologues ont trouvé la plus vieille cave à vin connue : 6 100 ans.",
+      "story": [
+        "Dans la grotte d’Areni-1, une équipe arménienne et de l’UCLA a mis au jour un bassin de pressurage, une cuve de fermentation, des jarres, des coupes et des pépins de raisin, datés d’environ 4 100 ans avant notre ère. Le cépage areni noir porte le nom du village : petites baies à peau épaisse, maturité tardive.",
+        "Armenia Wine est fondée en 2006 par les familles Vardanyan et Mkrtchyan ; son chai en tuf rouge date de 2008. Depuis 2009, la maison achète l’areni aux vignerons du Vayots Dzor. « Takar » veut dire « tonneau » en arménien : c’est sa gamme élevée en fût, lancée en 2014."
+      ],
+      "technique": [
+        {
+          "label": "Terroir",
+          "text": "Vayots Dzor, vignes entre 1 000 et 1 600 m, celles du Takar à 1 200 m. Roche volcanique et calcaire."
+        },
+        {
+          "label": "Climat",
+          "text": "Étés chauds et secs, nuits fraîches, hivers rudes : −4 °C en janvier, 25 °C en juillet."
+        },
+        {
+          "label": "Vigne",
+          "text": "Le phylloxéra n’a jamais atteint la région : les vignes poussent sur leurs propres racines, le greffage y est interdit."
+        },
+        {
+          "label": "Vinification",
+          "text": "Vendange manuelle fin octobre, triple tri, 10 jours de fermentation, 10 à 30 jours de macération (méthode de la maison)."
+        },
+        {
+          "label": "Élevage",
+          "text": "12 mois en fût de chêne français. Les fûts ne servent pas plus de 3 ans."
+        }
+      ],
+      "tasting": {
+        "eye": "Rouge cerise aux reflets violacés.",
+        "nose": "Cerise et mûre ; épices du fût : vanille, clou de girofle, poivre ; puis réglisse et café torréfié.",
+        "palate": "Sèche, portée par la fraîcheur des fruits rouges. Structurée, sans tanins agressifs.",
+        "finish": "Épicée, sur la cerise et le bois."
+      },
+      "profile": [
+        {
+          "label": "Acidité",
+          "value": 3
+        },
+        {
+          "label": "Corps",
+          "value": 3
+        },
+        {
+          "label": "Tanins",
+          "value": 3
+        },
+        {
+          "label": "Boisé",
+          "value": 4
+        },
+        {
+          "label": "Épices",
+          "value": 4
+        }
+      ],
+      "pairings": [
+        {
+          "kind": "Le classique arménien",
+          "dish": "Khorovats",
+          "note": "brochettes de porc ou d’agneau au feu de bois"
+        },
+        {
+          "kind": "Plat",
+          "dish": "Côte de bœuf grillée",
+          "note": "ou un magret de canard"
+        },
+        {
+          "kind": "Mezze",
+          "dish": "Dolmas et lahmajoun",
+          "note": "feuilles de vigne farcies, galette à la viande"
+        }
+      ],
+      "avoid": "le poisson, que le bois et les tanins écrasent.",
+      "did_you_know": "Selon The World of Fine Wine, un areni bien élevé rappelle un chianti classico : structuré mais jamais dur, malgré ses peaux épaisses.",
+      "facts": [
+        {
+          "label": "Cépage",
+          "value": "100 % areni noir"
+        },
+        {
+          "label": "Alcool",
+          "value": "environ 13,5 %"
+        },
+        {
+          "label": "Élevage",
+          "value": "12 mois, chêne français"
+        },
+        {
+          "label": "Altitude",
+          "value": "1 200 m"
+        },
+        {
+          "label": "Service",
+          "value": "16–17 °C"
+        },
+        {
+          "label": "Distinctions",
+          "value": "Argent Mundus Vini 2023 (2021)"
+        }
+      ],
+      "map": {
+        "country_iso3": "ARM",
+        "country_label": "Arménie",
+        "place": "Areni, Vayots Dzor",
+        "lat": 39.72,
+        "lon": 45.19,
+        "caption": "Le village d’Areni et sa grotte, au cœur du Vayots Dzor.",
+        "ref": {
+          "name": "Erevan",
+          "lat": 40.181,
+          "lon": 44.514
+        }
+      },
+      "sources": "Armenia Wine · National Geographic (Areni-1) · World of Fine Wine · Mundus Vini"
+    }
+  ]
+}

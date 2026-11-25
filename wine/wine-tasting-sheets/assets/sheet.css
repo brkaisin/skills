@@ -1,0 +1,72 @@
+/* Wine tasting sheets: one A4 landscape page per wine.
+   Side-panel colours come from inline --panel/--ink/--soft/--accent variables set per page.
+   --s is a text scale (1 by default) that the fit script lowers when a column overflows. */
+@page { size: A4 landscape; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --wine: #7E2236; --gold: #B88A3E; --text: #3E2B2F; --muted: #5B4649; --rule: #D7C7B1; --bg: #F7F1E8; --card: #FBF7F1; --note: #EFE5D4; }
+html, body { background: var(--bg); }
+body { font-family: 'DM Sans', Arial, Helvetica, sans-serif; color: #2A181C; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 297mm; height: 210mm; display: grid; grid-template-columns: 86mm 1fr; overflow: hidden; break-after: page; page-break-after: always; background: var(--bg); }
+.page:last-child { break-after: auto; page-break-after: auto; }
+.side, .main { --s: 1; overflow: hidden; min-height: 0; }
+
+/* ---------- side panel ---------- */
+.side { background: var(--panel); color: var(--ink); padding: 10mm 9mm 8mm; display: flex; flex-direction: column; }
+.num { font-family: 'Cormorant Garamond', Georgia, serif; font-size: calc(30pt * var(--s)); font-weight: 600; line-height: 1; color: var(--accent); }
+.num .of { font-size: calc(12pt * var(--s)); color: var(--soft); }
+.type { align-self: flex-start; margin-top: 3mm; padding: 1mm 3mm; border: 0.3mm solid var(--accent); border-radius: 10mm; font-size: calc(7.5pt * var(--s)); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.side h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: calc(27pt * var(--s)); font-weight: 700; line-height: 1.0; margin-top: 3.5mm; }
+.prod { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: calc(14pt * var(--s)); margin-top: 1mm; color: var(--soft); }
+.app { font-size: calc(7.5pt * var(--s)); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1.5mm; color: var(--soft); }
+.map { margin-top: 4.5mm; height: calc(66mm * var(--s)); flex-shrink: 0; border-radius: 3mm; overflow: hidden; display: flex; }
+.map svg { width: 100%; height: 100%; display: block; }
+.cap { font-size: calc(7.2pt * var(--s)); line-height: 1.35; margin-top: 1.8mm; color: var(--soft); font-style: italic; }
+.facts { margin-top: auto; padding-top: 3mm; }
+.facts .f:first-child { border-top: 0.4mm solid var(--accent); }
+.f { display: flex; justify-content: space-between; gap: 3mm; padding: 1.5mm 0; border-bottom: 0.2mm solid rgba(127, 110, 100, 0.35); }
+.fk { font-size: calc(6.8pt * var(--s)); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); white-space: nowrap; padding-top: 0.3mm; }
+.fv { font-size: calc(7.8pt * var(--s)); text-align: right; line-height: 1.3; }
+
+/* ---------- main column ---------- */
+.main { padding: 9mm 11mm 6mm 10mm; display: flex; flex-direction: column; gap: calc(3.9mm * var(--s)); }
+.eyebrow { font-size: calc(7pt * var(--s)); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--wine); }
+.hook { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: calc(15.5pt * var(--s)); line-height: 1.22; margin-top: -1.5mm; }
+h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: calc(14pt * var(--s)); font-weight: 700; color: var(--wine); border-bottom: 0.3mm solid var(--gold); padding-bottom: 0.8mm; margin-bottom: 2mm; }
+.row { display: grid; gap: 7mm; }
+.r1 { grid-template-columns: 1fr 1fr; }
+.r2 { grid-template-columns: 1.15fr 1fr; }
+.story p { font-size: calc(8.9pt * var(--s)); line-height: 1.48; color: var(--text); text-align: justify; hyphens: auto; }
+.story p + p { margin-top: 1.8mm; }
+.ti, .si { display: grid; grid-template-columns: 19mm 1fr; gap: 2mm; padding: 1mm 0; }
+.ti { border-bottom: 0.2mm dotted var(--rule); }
+.ti:last-child { border-bottom: none; }
+.tk { font-size: calc(6.8pt * var(--s)); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wine); padding-top: 0.4mm; }
+.tv { font-size: calc(8.4pt * var(--s)); line-height: 1.4; color: var(--text); }
+.sk { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 600; font-size: calc(11pt * var(--s)); line-height: 1.1; color: var(--wine); }
+.sv { font-size: calc(8.6pt * var(--s)); line-height: 1.42; color: var(--text); }
+.pr { display: grid; grid-template-columns: 17mm 1fr 8mm; align-items: center; gap: 2mm; padding: 0.75mm 0; }
+.pk { font-size: calc(7.6pt * var(--s)); font-weight: 700; }
+.bar { display: flex; gap: 0.9mm; }
+.seg { flex: 1; height: 2.2mm; border-radius: 1.1mm; background: #E3D5C1; }
+.seg.on { background: var(--wine); }
+.pn { font-size: calc(7.2pt * var(--s)); color: var(--muted); text-align: right; }
+.know { margin-top: 2.6mm; padding: 2.4mm 3mm; border-left: 0.8mm solid var(--gold); background: var(--note); font-size: calc(8.1pt * var(--s)); line-height: 1.4; color: var(--text); border-radius: 0 1.5mm 1.5mm 0; }
+.know b, .avoid b { color: var(--wine); }
+.pairs { display: grid; grid-template-columns: repeat(auto-fit, minmax(40mm, 1fr)); gap: 4mm; }
+.pair { background: var(--card); border: 0.2mm solid #DCCDB7; border-top: 1mm solid var(--wine); border-radius: 1.5mm; padding: 2.2mm 3mm 2.4mm; }
+.pkind { font-size: calc(6.5pt * var(--s)); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wine); }
+.pdish { font-family: 'Cormorant Garamond', Georgia, serif; font-size: calc(14pt * var(--s)); font-weight: 700; line-height: 1.1; margin-top: 0.6mm; }
+.pnote { font-size: calc(8pt * var(--s)); color: var(--muted); margin-top: 0.4mm; }
+.avoid { margin-top: 2.2mm; font-size: calc(8.2pt * var(--s)); color: var(--text); }
+.src { margin-top: auto; font-size: calc(6.3pt * var(--s)); color: #8A7A72; }
+
+/* ---------- print theme: white paper, colour only in thin lines and small text ---------- */
+.theme-print { --bg: #FFFFFF; --card: #FFFFFF; --note: #FFFFFF; --text: #2B2B2B; --muted: #555555; --rule: #CCCCCC; --gold: #9A9A9A; }
+.theme-print, .theme-print .page { background: #FFFFFF; }
+.theme-print .side { border-right: 0.3mm solid #BBBBBB; }
+.theme-print .map { border: 0.3mm solid #CCCCCC; }
+.theme-print .f { border-bottom-color: #DDDDDD; }
+.theme-print .seg { background: #FFFFFF; border: 0.25mm solid #999999; }
+.theme-print .seg.on { background: #8C8C8C; border-color: #8C8C8C; }
+.theme-print .pair { border: 0.25mm solid #BBBBBB; border-top: 0.6mm solid var(--wine); }
+.theme-print .know { border-left: 0.6mm solid #999999; padding-left: 2.5mm; }

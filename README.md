@@ -56,3 +56,4 @@ Skills reference each other by name ("invoke the disk-audit skill"): in harnesse
 | Category | Skills | Purpose |
 |---|---|---|
 | [disk](disk/) | `disk-doctor` | Disk-space analysis and safe cleanup (macOS + Linux) |
+| [wine](wine/) | `wine-tasting-sheets` | Printable tasting sheets (PDF) for a list of wines, with maps, in any language |

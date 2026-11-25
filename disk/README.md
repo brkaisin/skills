@@ -22,7 +22,7 @@ disk-doctor/
 
 ## Install
 
-`../install.sh disk` (or bare `../install.sh` and pick it in the menu); add `--dir <path>` for harnesses other than Claude Code — see the repo README. Then ask your agent:
+Claude Code: `/plugin install disk --marketplace brkaisin/skills`. Codex / Copilot: the `disk@brkaisin` plugin. Any other agent: `npx skills add brkaisin/skills -s disk-doctor`. Details in the [repo README](../README.md#install). Then ask your agent:
 
 > "my disk is full" / "what can I clean?" — or `/disk-doctor` in Claude Code
 

@@ -1,0 +1,8 @@
+{
+  "name": "wine",
+  "version": "1.0.0",
+  "description": "Printable wine tasting sheets (PDF) with maps, in any language.",
+  "author": { "name": "brkaisin", "url": "https://github.com/brkaisin" },
+  "repository": "https://github.com/brkaisin/skills",
+  "skills": ["./wine-tasting-sheets"]
+}

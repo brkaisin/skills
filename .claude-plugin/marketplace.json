@@ -1,0 +1,24 @@
+{
+  "name": "brkaisin",
+  "owner": {
+    "name": "brkaisin",
+    "url": "https://github.com/brkaisin"
+  },
+  "description": "Personal agent skills (Agent Skills format), one plugin per category.",
+  "plugins": [
+    {
+      "name": "disk",
+      "source": "./disk",
+      "description": "Disk-space checkup and safe cleanup for macOS and Linux (disk-doctor).",
+      "category": "productivity",
+      "keywords": ["disk", "cleanup", "macos", "linux"]
+    },
+    {
+      "name": "wine",
+      "source": "./wine",
+      "description": "Printable wine tasting sheets (PDF) with maps, in any language (wine-tasting-sheets).",
+      "category": "lifestyle",
+      "keywords": ["wine", "tasting", "pdf"]
+    }
+  ]
+}

@@ -1,59 +1,90 @@
-# My agent skills
+# Agent skills
 
-Personal collection of agent skills, organized by category. Each skill follows the open [Agent Skills](https://docs.claude.com/en/docs/claude-code/skills) convention — a folder with a `SKILL.md` (YAML frontmatter + markdown instructions), plus optional scripts and reference docs — but the content is plain markdown and bash, usable by **any agent that can read files and run shell commands**.
+**Skills that give your coding agent new jobs**: printing tasting sheets for a wine evening, or finding out why your disk is full and cleaning it safely.
 
-## Layout
+They work with **Claude Code, Codex, GitHub Copilot, Pi, Cursor, Gemini CLI** and [75+ other agents](https://github.com/vercel-labs/skills/blob/main/docs/agents.md). Each skill is a short Markdown file you can read in a few minutes. Installing one runs no code from this repo.
+
+---
+
+## The skills
+
+### wine-tasting-sheets: a printable booklet for your next tasting
+
+Give your agent a list of wines. It researches each one (producer sheets, critics, the region) and gives you a PDF with one page per wine, ready to print and hand out.
+
+![A tasting sheet: the wine and a map of France on the left; story, winemaking, tasting notes, a 1–5 profile and food pairings on the right](docs/wine-tasting-sheet.jpg)
+
+- **Everything on one page:** the story behind the wine, how it's made, tasting notes, a 1–5 profile, a "did you know?", three food pairings, and a map with a dot on the vineyard.
+- **Any language:** French, English, Dutch, Spanish, German and Italian are built in. Ask for another language and the agent adds it.
+- **Two versions:** a colour version tinted to each wine, and an ink-saving one for the office printer.
+
+> *"Make tasting sheets for these four wines, in English, printable version."*
+
+[More about wine-tasting-sheets →](wine/)
+
+### disk-doctor: "my disk is full", fixed without the fear
+
+On macOS or Linux, it works out what is actually using your space. It lists what's safe to delete, and nothing is deleted until you've picked from that list.
 
 ```
-<category>/               one folder per topic (disk, git, deploy, …)
-  README.md               what the category's skills do, how they relate
-  <skill-name>/           one folder per skill — this is what gets installed
-    SKILL.md              required: frontmatter (name, description) + instructions
-    scripts/              optional: helper scripts the skill calls
-    references/           optional: docs the skill loads on demand
-_template/                starting point for new skills
-install.sh                symlinks/copies every skill into a skills directory
+diagnose → audit (read-only) → YOU CHOOSE → clean only your selection → before/after report
 ```
 
-Categories are for humans browsing the repo; harnesses usually see a flat list, so **skill names must be unique across the whole repo** (kebab-case, e.g. `disk-audit`).
+- **Finds what other tools miss:** files left behind by apps you uninstalled, and old versions that tools keep piling up (one folder per IDE release, in three places at once). It also names what the bytes actually are, e.g. "4 GB of Chrome is an on-device AI model".
+- **Sorts every finding by risk:** dead weight, stale archives, rebuildable caches, and *keep*. Your documents, profiles and keys are never even offered for deletion.
+- **Cleans the careful way:** it uses each tool's own cleaner first (`brew cleanup`, `npm cache clean`, `docker system prune`…). It checks that apps are closed before touching their files, and it stops if anything doesn't match the report.
+
+> *"My disk is full, what's taking all the space?"*
+
+[More about disk-doctor →](disk/)
+
+---
 
 ## Install
 
-```bash
-./install.sh                     # interactive picker: ↑/↓ move, space toggle, a all/none,
-                                 #                     enter install, q quit
-./install.sh disk                # a whole category
-./install.sh disk-doctor         # specific skills (mix with categories freely)
-./install.sh --all               # everything, no questions (scripts/CI)
-./install.sh --dir <path> ...    # any target directory (default: ~/.claude/skills, Claude Code)
-./install.sh --copy ...          # copy instead of symlink (for machines where this repo won't stay)
+Each skill can be installed on its own (`disk`, `wine`). Use **one** method per agent; installing both ways gives you every skill twice.
+
+**Claude Code**: updates itself.
+```
+/plugin marketplace add brkaisin/skills
+/plugin install wine@brkaisin
+/plugin install disk@brkaisin
 ```
 
-Symlinks mean edits in the repo apply immediately. Existing non-symlink folders in the target are never overwritten. Non-interactive runs with no selection install everything.
+**Codex**: updates at startup.
+```bash
+codex plugin marketplace add brkaisin/skills
+codex plugin add wine@brkaisin
+```
 
-**Where to install:** Claude Code only discovers skills in `~/.claude/skills` (personal, the default) or `<project>/.claude/skills` (project) — the installer warns if the target is neither. New skills are picked up at session start, so restart a running session after installing.
+**GitHub Copilot CLI**
+```bash
+copilot plugin marketplace add brkaisin/skills
+copilot plugin install wine@brkaisin
+```
 
-## Using with different harnesses
+**Pi, Cursor, Gemini CLI, OpenCode, and any other agent with skill support**
+```bash
+npx skills add brkaisin/skills            # pick the skills and agents interactively
+npx skills update                         # later, to get new versions
+```
 
-- **Claude Code / Claude API / Agent SDK** — native support: run `./install.sh` (personal) or `./install.sh --dir <project>/.claude/skills` (per-project). Skills auto-trigger from their descriptions; `/skill-name` invokes one explicitly.
-- **Codex CLI and other AGENTS.md-based tools** — clone the repo next to your project and add one line to `AGENTS.md`: *"Skills live in `./skills/`. When a task matches a skill's description (see its `SKILL.md` frontmatter), read that file and follow it."*
-- **Cursor / similar rule systems** — same one-liner as a rule (e.g. `.cursor/rules`), pointing at the repo path.
-- **Any other agent, or a plain chat** — paste the relevant `SKILL.md` into context (plus its `references/` files when it says to read them). Skills that call helper scripts need shell access; without it, the agent can follow the workflow manually.
+Then restart your agent and ask for what you need, as in the examples above. In Claude Code you can also pick a skill from the `/` menu.
 
-Skills reference each other by name ("invoke the disk-audit skill"): in harnesses without native skill invocation, that simply means "read that skill's `SKILL.md` and follow it". Optional niceties (structured question dialogs, HTML reports) are written with plain-text fallbacks.
+<details>
+<summary><strong>Your agent doesn't support skills?</strong></summary>
 
-## Adding a new skill
+Run `npx skills use brkaisin/skills@disk-doctor` to print the skill as a prompt you can paste into any chat. You can also clone this repo and add this line to your `AGENTS.md` or rules file: *"Skills live in `./skills/`. When a task matches a skill's description (see its `SKILL.md` frontmatter), read that file and follow it."* Skills that use helper scripts need shell access. Without it, the agent can follow the steps by hand.
 
-1. Pick or create a category folder.
-2. `cp -R _template <category>/<skill-name>` and edit `SKILL.md`.
-3. Frontmatter rules: `name` = folder name, lowercase-kebab, unique; `description` says **what it does and when to use it** — that's what triggers it, so include the phrases a user would actually say.
-4. Keep `SKILL.md` under ~150 lines; push details into `references/` (loaded only when needed) and repeatable shell work into `scripts/`. Keep instructions harness-neutral: name capabilities ("a structured question tool, if available"), not specific tool brands.
-   For a multi-step workflow that must stay atomic (one entry point, parts never installed or invoked separately), make it ONE skill with phase documents inside — see `disk/disk-doctor` (`SKILL.md` + `AUDIT.md` + `CLEAN.md`) — rather than several skills.
-5. Re-run `./install.sh`.
+</details>
 
-## Categories
+## Why you can trust them
 
-| Category | Skills | Purpose |
-|---|---|---|
-| [disk](disk/) | `disk-doctor` | Disk-space analysis and safe cleanup (macOS + Linux) |
-| [wine](wine/) | `wine-tasting-sheets` | Printable tasting sheets (PDF) for a list of wines, with maps, in any language |
+- **Nothing runs when you install.** Your agent's plugin system or `npx skills` only copies files, and you can read every one first.
+- **Read-only until you decide.** A skill that can delete or change things analyses first and waits for your explicit choice. If it runs on a schedule, it never deletes anything.
+- **Small and readable.** Each `SKILL.md` stays under about 150 lines of plain instructions. Longer details live in reference files the agent only opens when it needs them.
+- **Few requirements.** The helper scripts use standard tools: plain bash, and Python's standard library. The wine skill also needs a browser (Chrome, Edge…) to make the PDF.
+
+## Contributing
+
+Ideas and fixes are welcome. [CONTRIBUTING.md](CONTRIBUTING.md) explains the layout, how to work on the skills locally, and how to add a new one.

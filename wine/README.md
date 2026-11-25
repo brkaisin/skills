@@ -36,7 +36,7 @@ wine-tasting-sheets/
 
 ## Install
 
-`../install.sh wine`, or run `../install.sh` and pick it in the menu. For harnesses other than Claude Code, add `--dir <path>`, as explained in the repo README. Then ask your agent:
+Claude Code: `/plugin install wine --marketplace brkaisin/skills`. Codex / Copilot: the `wine@brkaisin` plugin. Any other agent: `npx skills add brkaisin/skills -s wine-tasting-sheets`. Details in the [repo README](../README.md#install). Then ask your agent:
 
 > "make tasting sheets for these wines" / "fais-moi des fiches de dégustation pour ces vins, en anglais, version imprimable"
 

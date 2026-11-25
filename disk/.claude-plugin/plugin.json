@@ -1,0 +1,8 @@
+{
+  "name": "disk",
+  "version": "1.0.0",
+  "description": "Disk-space checkup and safe cleanup for macOS and Linux.",
+  "author": { "name": "brkaisin", "url": "https://github.com/brkaisin" },
+  "repository": "https://github.com/brkaisin/skills",
+  "skills": ["./disk-doctor"]
+}
